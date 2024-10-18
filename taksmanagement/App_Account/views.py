@@ -12,6 +12,9 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.views import APIView
 from rest_framework.response import Response
 
+#rest_framework simpoljwt
+from rest_framework_simplejwt.tokens import RefreshToken
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 class UserList(ModelViewSet):
     queryset=User.objects.all()
@@ -25,6 +28,9 @@ class CreateUser(APIView):
             serializer.save()
             return Response({'user':serializer.data})
         return Response({'status':False,'message':serializer.errors})
+    
+
+            
         
         
 
